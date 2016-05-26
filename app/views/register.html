@@ -1,0 +1,57 @@
+<div class="container col-sm-offset-1 col-sm-9">
+  <h2 class="text-center">Sign Up</h2><br>
+  <form name="form" method="post" class="form-horizontal" role="form" ng-controller="userCtrl" ng-submit="createUser()">
+    <div class="form-group" ng-class="{'has-error has-feedback': form.username.$invalid && form.username.$dirty,
+       'has-success has-feedback': form.username.$valid}">
+      <div class="col-sm-offset-2 col-sm-8">
+        <input type="text" class="form-control" name="username" placeholder="Username" ng-model="user.name"
+               ng-required="true">
+          <span ng-class="{'glyphicon glyphicon-remove form-control-feedback':
+          form.username.$invalid && form.username.$dirty,
+       'glyphicon glyphicon-ok form-control-feedback': form.username.$valid}"></span>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error has-feedback': form.email.$invalid && form.email.$dirty,
+       'has-success has-feedback': form.email.$valid}">
+      <div class="col-sm-offset-2 col-sm-8">
+        <input type="email" class="form-control" name="email" id="email"
+               placeholder="Email" ng-model="user.email" ng-required="true">
+           <span ng-class="{'glyphicon glyphicon-remove form-control-feedback':
+           form.email.$invalid && form.email.$dirty,
+       'glyphicon glyphicon-ok form-control-feedback': form.email.$valid}"></span>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error has-feedback':
+      form.password.$invalid && form.password.$dirty,
+       'has-success has-feedback': form.password.$valid}">
+      <div class="col-sm-offset-2 col-sm-8">
+        <input type="password" class="form-control" name="password" id="password" placeholder="Password"
+               ng-model="user.password" ng-required="true" ng-minlength="5">
+           <span ng-class="{'glyphicon glyphicon-remove form-control-feedback':
+           form.password.$invalid && form.password.$dirty,
+       'glyphicon glyphicon-ok form-control-feedback': form.password.$valid}"></span>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error has-feedback':
+      form.confirmedPassword.$error.equals,
+       'has-success has-feedback': form.confirmedPassword.$valid && form.password.$valid}">
+      <div class="col-sm-offset-2 col-sm-8">
+        <input type="password" class="form-control" name="confirmedPassword" id="confirmedPassword"
+               placeholder="Confirm password" ng-model="confirmedPassword" ng-required="true"
+               equals="{{user.password}}">
+           <span ng-class="{'glyphicon glyphicon-remove form-control-feedback':
+            form.confirmedPassword.$error.equals,
+       'glyphicon glyphicon-ok form-control-feedback': form.confirmedPassword.$valid && form.password.$valid}"></span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm col-sm-8">
+        <input type="submit" class="btn btn-success pull-right" ng-disabled="form.$invalid" value="Submit">
+      </div>
+    </div>
+  </form>
+</div>

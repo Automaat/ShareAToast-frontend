@@ -1,0 +1,46 @@
+<div align="left">
+
+  <div class="row">
+    <div class="col-md-4"><img src="images/event.jpg" class="img-circle" width="200" height="200"></div>
+    <div class="row">
+      <div class="col-md-5"><h3><strong>{{event.name}}</strong></h3></div>
+      <div class="col-md-5">{{event.date | date:'yyyy-MM-dd HH:mm'}}</div>
+      <div class="col-md-5">{{event.place}}</div>
+      <div class="col-md-5" align="right">
+      </div>
+    </div>
+
+  </div>
+  <div class="row top-buffer row-eq-height">
+    <div class="col-md-4">
+    <ul class="nav nav-pills nav-stacked" id="myTab">
+      <li role="presentation" class="active"><a data-target="#description" data-toggle="tab">About event</a></li>
+      <li role="presentation"><a data-target="#participants" data-toggle="tab">Participants</a></li>
+      <li role="presentation"><a data-target="#map" data-toggle="tab" ng-click="map.show=true">Map</a></li>
+      <li role="presentation"><a data-target="#calendar" data-toggle="tab">Calendar</a></li>
+    </ul>
+    </div>
+    <div class="col-md-8">
+      <div class="tab-content panel panel-default">
+      <div class="tab-pane active" id="description">{{event.description}}</div>
+      <div class="tab-pane" id="participants">
+        <table class="table">
+          <tr ng-repeat="user in event.participants">
+            <td class="col-xs-1"><img ng-src="images/Icon-user.png" width="30" height="30"></td>
+            <td>{{user}}</td>
+        </table>
+      </div>
+      <div class="tab-pane" id="map" ng-if="map.show"><ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events">
+        <ui-gmap-marker coords="marker.coords" idKey="marker.id">
+        </ui-gmap-marker>
+      </ui-gmap-google-map></div>
+      <div class="tab-pane" id="calendar">Calendar</div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-lg btn-primary pull-right" role="button" ng-click="joinEvent(event)" ng-show="user != event.ownerName">Join event</button>
+    </div>
+  </div>
+</div>

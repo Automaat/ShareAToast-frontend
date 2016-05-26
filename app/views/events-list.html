@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for..." ng-model="searchText.ownerName">
+      <span class="input-group-btn">
+        <button class="btn btn-default glyphicon glyphicon-search" type="button"></button>
+      </span>
+    </div>
+</div>
+<div class="row top-buffer">
+  <a ng-repeat="event in events | filter:searchType" ng-href="/#/event/{{event.id}}" class="list-group-item">
+    <div class="row con">
+      <div class="col-md-3"><img src="images/event.jpg" class="img-circle" width="100" height="100" align="left"></div>
+      <div class="col-md-9">
+        <div class="row"><div class="col-md-6" align="left"> <h4 class="list-group-item-heading">{{event.name}}</h4></div></div>
+        <div class="row"><div class="col-md-4" align="left">{{event.date | date:'yyyy-MM-dd HH:mm'}}</div></div>
+        <div class="row"><div class="col-md-4" align="left">{{event.place}}</div></div>
+        <div class="row">
+          <div class="col-md-12">
+            <button class="btn btn-md btn-primary pull-right" role="button" ng-show="user != event.ownerName" ng-click="joinEvent(event)">Join</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

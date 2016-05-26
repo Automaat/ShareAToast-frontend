@@ -1,0 +1,54 @@
+<div class="login">
+  <h1>Share A Toast</h1>
+  <h4>Wherever you are</h4>
+  <div class="container col-md-6 col-md-offset-3" ng-show="!authenticated">
+
+    <form class="form-signin" ng-submit="loginCtr.login()">
+      <h2 class="form-signin-heading">Please sign in</h2>
+      <label for="inputUser" class="sr-only">User name</label>
+      <input type="text" id="inputUser" class="form-control" placeholder="User name" required="" autofocus="" ng-model="loginCtr.credentials.username">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" ng-model="loginCtr.credentials.password">
+      <br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+
+  </div>
+
+  <div ng-show="authenticated" style="width: 1000px; position: relative; left: -70px;">
+    <div class="row row-eq-height">
+      <div class="col-lg-5 jumbotron" id="jumbo">
+        <h2><a href="/#/events-list">Search events</a></h2>
+        <p>
+          Want to have fun? <br>
+          Want to meet new people? <br>
+          Just click and start adventure!
+        </p>
+      </div>
+      <div class="col-lg-5 jumbotron left-buffer" id="jumbo">
+        <h2><a href="/#/event/create">Create your event</a></h2>
+        <p>
+          Tired of flimsy events?<br>
+          Or do you have better event idea? <br>
+          Create your own events!
+        </p>
+      </div>
+    </div>
+    <div class="row row-eq-height">
+      <div class="col-lg-5 jumbotron" id="jumbo">
+        <h2><a href="/#/events-list">Your events</a></h2>
+        <p>
+          Explore all your future events
+        </p>
+      </div>
+      <div class="col-lg-5 jumbotron left-buffer" id="jumbo">
+        <h2><a href="/#/">Explore friends</a></h2>
+        <p>
+          Want to have fun with friends? <br>
+          Check out what they are planning!
+        </p>
+      </div>
+    </div>
+  </div>
+<!--<button ng-click="main.getEvents()">eeeeelo</button>-->
+</div>
